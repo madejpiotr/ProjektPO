@@ -99,10 +99,10 @@
                 </constraints>
                 <properties>
                   <font name="Comic Sans MS" size="16"/>
-                  <text value="Email"/>
+                  <text value="Name"/>
                 </properties>
               </component>
-              <component id="ba203" class="javax.swing.JTextField" binding="tfEmail">
+              <component id="ba203" class="javax.swing.JTextField" binding="tfName">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>

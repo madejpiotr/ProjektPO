@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class Register extends JDialog {
     private JPanel registerPanel;
@@ -25,6 +27,7 @@ public class Register extends JDialog {
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        Database.getDB().Connect();
 
         registerButton.addActionListener(new ActionListener() {
             @Override
@@ -70,34 +73,18 @@ public class Register extends JDialog {
     public User user;
 
     private User addUserToDatabase(String name, String email, String password) {
-        User user = null;
-        //spr czy podlaczone jest do bazy danych
-        final String DB_URL = "jdbc:mysql://localhost/ProjektPO?serverTimezone=UTC";
-        final String USERNAME = "root";
-        final String PASSWORD = "";
-
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            Statement stmt = conn.createStatement();
-            String sql = "INSERT INTO users (name, email, password) VALUES (?,?,?)";
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, password);
-
-            //insert row into the table
-
-            int addedRows = preparedStatement.executeUpdate();
-            if (addedRows > 0) {
-                user = new User(name, email, password);
-            }
-            stmt.close();
-            conn.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        User user = new User(name, email, password);
+        Users users = new Users(Database.getDB());
+        if (!users.Create(user)) {
+            return null;
         }
-
+        Score score = new Score(0, 0, 0);
+        Scores scores = new Scores(Database.getDB());
+        scores.Create(score);
+        ArrayList<Score> scoreList = new ArrayList<Score>();
+        Account account = new Account(0, user, score, new ArrayList<Item>(), new ArrayList<Assistant>());
+        Accounts accounts = new Accounts(Database.getDB());
+        accounts.Create(account);
         return user;
     }
 

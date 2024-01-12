@@ -26,7 +26,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="2188" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="2188" binding="rightPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -35,9 +35,23 @@
               <background color="-22451"/>
             </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <scrollpane id="7ab2e">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b4990" class="javax.swing.JTable" binding="rightTable">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
           </grid>
-          <grid id="4e5db" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="4e5db" binding="leftPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -47,7 +61,21 @@
               <visible value="true"/>
             </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <scrollpane id="e6991">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="8cf48" class="javax.swing.JTable" binding="leftTable">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
           </grid>
           <component id="9b40d" class="javax.swing.JButton" binding="clickButton" default-binding="true">
             <constraints>
@@ -64,6 +92,7 @@
               <hideActionText value="false"/>
               <icon value="cookie.png"/>
               <opaque value="false"/>
+              <pressedIcon value="crackedCookie.png"/>
               <requestFocusEnabled value="true"/>
               <rolloverEnabled value="true"/>
               <selected value="false"/>
@@ -72,12 +101,12 @@
           </component>
         </children>
       </grid>
-      <grid id="fb1b0" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="fb1b0" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="100" height="60"/>
-            <maximum-size width="100" height="60"/>
+            <minimum-size width="100" height="80"/>
+            <maximum-size width="200" height="80"/>
           </grid>
         </constraints>
         <properties>
@@ -105,6 +134,14 @@
             <properties>
               <font name="Fira Code"/>
               <text value="Bonus:1"/>
+            </properties>
+          </component>
+          <component id="129a0" class="javax.swing.JLabel" binding="PassiveBonus">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Passive bonus: 0"/>
             </properties>
           </component>
         </children>
