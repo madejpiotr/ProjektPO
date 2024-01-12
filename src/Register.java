@@ -39,7 +39,8 @@ public class Register extends JDialog {
             }
         });
         setVisible(true);
-}
+    }
+
     private void registerUser() {
         String name = tfName.getText();
         String email = tfEmail.getText();
@@ -65,15 +66,17 @@ public class Register extends JDialog {
                     "Failed to register new user", "Try again", JOptionPane.ERROR_MESSAGE);
         }
     }
-public User user;
-    private User addUserToDatabase(String name, String email, String password){
+
+    public User user;
+
+    private User addUserToDatabase(String name, String email, String password) {
         User user = null;
         //spr czy podlaczone jest do bazy danych
         final String DB_URL = "jdbc:mysql://localhost/ProjektPO?serverTimezone=UTC";
         final String USERNAME = "root";
         final String PASSWORD = "";
 
-        try{
+        try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             Statement stmt = conn.createStatement();
             String sql = "INSERT INTO users (name, email, password) VALUES (?,?,?)";
@@ -85,27 +88,25 @@ public User user;
             //insert row into the table
 
             int addedRows = preparedStatement.executeUpdate();
-            if(addedRows > 0){
-                user = new User();
-                user.name = name;
-                user.email = email;
-                user.password = password;
+            if (addedRows > 0) {
+                user = new User(name, email, password);
             }
             stmt.close();
             conn.close();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return user;
     }
+
     public static void main(String[] args) {
         Register r = new Register(null);
         User user = r.user;
-        if(user != null){
-            System.out.println("Successful registration of: "+user.name);
-        }else{
+        if (user != null) {
+            System.out.println("Successful registration of: " + user.name);
+        } else {
             System.out.println("Failed registration");
         }
     }
