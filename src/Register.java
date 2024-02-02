@@ -63,6 +63,7 @@ public class Register extends JDialog {
 
         user = addUserToDatabase(name, email, password);
         if (user != null) {
+            this.getParent().setVisible(true);
             dispose();
         } else {
             JOptionPane.showMessageDialog(this,
@@ -88,13 +89,13 @@ public class Register extends JDialog {
         return user;
     }
 
-    public static void main(String[] args) {
-        Register r = new Register(null);
-        User user = r.user;
-        if (user != null) {
-            System.out.println("Successful registration of: " + user.name);
-        } else {
-            System.out.println("Failed registration");
-        }
-    }
+//    public static void main(String[] args) {
+//        Register r = new Register(null);
+//        User user = r.user;
+//        if (user != null) {
+//            System.out.println("Successful registration of: " + user.name);
+//        } else {
+//            System.out.println("Failed registration");
+//        }
+//    }
 }

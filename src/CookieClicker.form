@@ -33,6 +33,7 @@
             </constraints>
             <properties>
               <background color="-22451"/>
+              <foreground color="-22451"/>
             </properties>
             <border type="none"/>
             <children>
@@ -40,12 +41,18 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-22451"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="b4990" class="javax.swing.JTable" binding="rightTable">
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <background color="-27611"/>
+                      <gridColor color="-22451"/>
+                      <selectionBackground color="-22451"/>
+                    </properties>
                   </component>
                 </children>
               </scrollpane>
@@ -66,12 +73,24 @@
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-22451"/>
+                  <foreground color="-27611"/>
+                  <requestFocusEnabled value="true"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="8cf48" class="javax.swing.JTable" binding="leftTable">
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <background color="-27611"/>
+                      <focusable value="false"/>
+                      <gridColor color="-22451"/>
+                      <selectionBackground color="-22451"/>
+                      <showHorizontalLines value="true"/>
+                      <showVerticalLines value="true"/>
+                      <visible value="true"/>
+                    </properties>
                   </component>
                 </children>
               </scrollpane>
@@ -88,6 +107,7 @@
               <contentAreaFilled value="false"/>
               <enabled value="true"/>
               <focusPainted value="false"/>
+              <focusTraversalPolicyProvider value="true"/>
               <foreground color="-22451"/>
               <hideActionText value="false"/>
               <icon value="cookie.png"/>
@@ -146,19 +166,6 @@
           </component>
         </children>
       </grid>
-      <component id="ef2c" class="javax.swing.JButton" binding="saveButton" default-binding="true">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-4957672"/>
-          <borderPainted value="false"/>
-          <focusPainted value="false"/>
-          <requestFocusEnabled value="false"/>
-          <rolloverEnabled value="false"/>
-          <text value="Save"/>
-        </properties>
-      </component>
     </children>
   </grid>
 </form>
